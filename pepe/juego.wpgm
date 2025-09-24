@@ -1,0 +1,21 @@
+import wollok.game.*
+import juegoBackup.*
+
+
+program ejemplo {
+  game.width(45)
+  game.height(45)
+  game.boardGround("background.png")
+  game.cellSize(10)
+  game.title("Juego")
+  game.start()
+  game.addVisualCharacter(tipito)
+
+  keyboard.up().onPressDo(tipito.irArriba())
+
+}
+
+
+
+
+
