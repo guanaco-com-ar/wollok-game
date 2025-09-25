@@ -11,6 +11,8 @@ program ejemplo {
   game.start()
   game.addVisualCharacter(tipito)
 
+  keyboard.up().onPressDo(tipito.irArriba())
+
 }
 
 
