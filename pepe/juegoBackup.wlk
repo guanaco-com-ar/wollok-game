@@ -5,7 +5,14 @@ object tipito{
   var property image = "pepetito2.png"
 
   method irArriba(){
-    image = "pepetito1.png"
-    return image
+    const subirPosicion = position.up(1)
+
+    if (position == subirPosicion){
+
+      image = "pepetito2.png"
+      }
+
+      
+    
   }
 }
