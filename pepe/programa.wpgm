@@ -1,0 +1,17 @@
+import wollok.game.*
+import pepito.*
+import personaje.*
+import juego.*
+
+
+
+program ejemplo {
+  juego.iniciar()
+
+  game.start()
+}
+
+
+
+
+
