@@ -4,9 +4,6 @@ object tipito {
   var property position = game.at(234,40)
   var property image = "otroPersonajito.png"
   
-
-  method mover(direccion){
-    position = direccion.cambiarPosicion(position)
-  }
+  method pepitoHablar() = "¡Hola! ¿Deberia confiar en ti?."
 
 }
