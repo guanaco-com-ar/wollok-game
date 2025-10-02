@@ -1,6 +1,7 @@
 import personaje.*
 import wollok.game.*
 import pepito.*
+import keybinds.*
 
 object juego {
   var property width = 0
@@ -14,10 +15,8 @@ object juego {
     game.title("Juego")
     game.addVisualCharacter(tipito)
     game.addVisual(personaje)
-    game.whenCollideDo(tipito, { elemento =>
-    const a = 1 / 0 //Se produce un error
-  })
-  }
+    game.say(personaje, personaje.hablar())
+  } 
 
   method configuracionInicial(){
     game.width(257)

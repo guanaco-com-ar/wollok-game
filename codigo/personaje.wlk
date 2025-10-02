@@ -5,4 +5,5 @@ object personaje{
     var property image  = "foca.png"
 
     method hablar() = "¡Hola, soy un lobo marino! Apreta Z para moverme arriba y X para moverme abajo."
+
 }

@@ -7,3 +7,5 @@ object tipito {
   method pepitoHablar() = "¡Hola! ¿Deberia confiar en ti?."
 
 }
+
+
