@@ -17,8 +17,10 @@ object juego {
     game.title("Juego")
     game.addVisualCharacter(tipito)
     game.addVisual(personaje)
-    game.say(personaje, personaje.hablar())
+    game.whenCollideDo(tipito, {elemento => elemento.hablar()
+    }) 
 
   }
 
 }
+
