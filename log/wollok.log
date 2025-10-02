@@ -534,3 +534,17 @@
 {"exitCode":"SIGHUP","level":"info","message":"👾 Game executed pepe.programa.ejemplo on c:\\Users\\Alumno Fragata\\Desktop\\wollok-game","timeElapsed":102296,"timestamp":"2025-09-30T20:18:48.350Z"}
 {"level":"info","message":"🚀 Program executed \u001b[3m\u001b[34mpepe.programa.ejemplo\u001b[39m\u001b[23m on \u001b[3m\u001b[34mc:\\Users\\Alumno Fragata\\Desktop\\wollok-game\u001b[39m\u001b[23m","ok":true,"timeElapsed":255,"timestamp":"2025-09-30T20:18:49.683Z"}
 {"exitCode":"SIGHUP","level":"info","message":"👾 Game executed pepe.programa.ejemplo on c:\\Users\\Alumno Fragata\\Desktop\\wollok-game","timeElapsed":153953,"timestamp":"2025-09-30T20:21:23.372Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":120,"timestamp":"2025-10-01T23:57:37.535Z"}
+{"level":"info","message":"⌛ Validating juego/juego.wlk","timeElapsed":107,"timestamp":"2025-10-01T23:57:37.899Z"}
+{"level":"info","message":"⌛ Validating juego/programa.wpgm","timeElapsed":114,"timestamp":"2025-10-02T00:12:21.258Z"}
+{"level":"info","message":"⌛ Validating juego/programa.wpgm","timeElapsed":115,"timestamp":"2025-10-02T00:12:29.217Z"}
+{"level":"info","message":"🚀 Program executed \u001b[3m\u001b[34mjuego.programa.ejemplo\u001b[39m\u001b[23m on \u001b[3m\u001b[34mc:\\Users\\Usuario\\Desktop\\wollok jueguito\\wollok-game\u001b[39m\u001b[23m","ok":true,"timeElapsed":281,"timestamp":"2025-10-02T00:12:33.451Z"}
+{"level":"info","message":"⌛ Validating juego/juego.wlk","timeElapsed":107,"timestamp":"2025-10-02T00:12:59.853Z"}
+{"level":"info","message":"⌛ Validating juego/pepito.wlk","timeElapsed":103,"timestamp":"2025-10-02T00:13:03.110Z"}
+{"level":"info","message":"⌛ Validating juego/personaje.wlk","timeElapsed":105,"timestamp":"2025-10-02T00:13:09.763Z"}
+{"level":"info","message":"⌛ Validating juego/personaje.wlk","timeElapsed":102,"timestamp":"2025-10-02T00:13:15.305Z"}
+{"exitCode":"SIGHUP","level":"info","message":"👾 Game executed juego.programa.ejemplo on c:\\Users\\Usuario\\Desktop\\wollok jueguito\\wollok-game","timeElapsed":46786,"timestamp":"2025-10-02T00:13:19.957Z"}
+{"level":"info","message":"🚀 Program executed \u001b[3m\u001b[34mjuego.programa.ejemplo\u001b[39m\u001b[23m on \u001b[3m\u001b[34mc:\\Users\\Usuario\\Desktop\\wollok jueguito\\wollok-game\u001b[39m\u001b[23m","ok":true,"timeElapsed":317,"timestamp":"2025-10-02T00:13:21.770Z"}
+{"level":"info","message":"⌛ Validating juego/programa.wpgm","timeElapsed":102,"timestamp":"2025-10-02T00:13:45.806Z"}
+{"level":"info","message":"⌛ Validating codigo/programa.wpgm","timeElapsed":110,"timestamp":"2025-10-02T00:14:13.987Z"}
+{"level":"info","message":"Removing diagnostics from /c:/Users/Usuario/Desktop/wollok jueguito/wollok-game/juego","timestamp":"2025-10-02T00:14:13.987Z"}
