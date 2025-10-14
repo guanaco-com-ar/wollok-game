@@ -1,5 +1,5 @@
 import wollok.game.*
-import pepito.*
+import tipito.*
 import personaje.*
 import juego.*
 
@@ -9,7 +9,7 @@ import juego.*
 object teclas{
     
     method dialogos(){
-    keyboard.p().onPressDo(game.say(tipito, tipito.pepitoHablar()))
+    keyboard.p().onPressDo(game.say(tipito, tipito.tipitoHablar()))
     
     }
 }

@@ -1,6 +1,6 @@
 import personaje.*
 import wollok.game.*
-import pepito.*
+import tipito.*
 import keybinds.*
 
 object juego {
@@ -19,10 +19,10 @@ object juego {
   } 
 
   method configuracionInicial(){
-    game.width(257)
-    game.height(100)
+    game.width(71)
+    game.height(21)
     game.boardGround("fondoDecente.png")
-    game.cellSize(5)
+    game.cellSize(20)
   }
 
   }
