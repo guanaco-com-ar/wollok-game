@@ -2,6 +2,7 @@ import personaje.*
 import wollok.game.*
 import tipito.*
 import keybinds.*
+import pantallas.* 
 
 object juego {
   var property width = 0
@@ -22,7 +23,7 @@ object juego {
     game.width(71)
     game.height(21)
     game.boardGround("fondoDecente.png")
-    game.cellSize(20)
+    game.cellSize(45)
   }
 
   }

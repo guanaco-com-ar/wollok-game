@@ -7,9 +7,7 @@ import juego.*
 
 
 object teclas{
-    
-    method dialogos(){
-    keyboard.p().onPressDo(game.say(tipito, tipito.tipitoHablar()))
-    
-    }
+    method teclas(){
+    keyboard.z()onPressDo({})
+}
 }

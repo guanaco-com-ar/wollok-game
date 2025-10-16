@@ -2,6 +2,7 @@ import wollok.game.*
 import tipito.*
 import personaje.*
 import juego.*
+import keybinds.* 
 
 
 
@@ -9,7 +10,7 @@ program ejemplo {
   juego.iniciar()
 
   game.whenCollideDo(tipito, { elemento =>
-    game.say(elemento, "¡Hola, soy un lobo marino! Apreta Z para moverme arriba y X para moverme abajo.")
+    game.say(elemento, "¡Hola, soy un lobo marino! Apreta Z para conocerme.")
     game.say(tipito, "¡Hola! ¿Deberia confiar en ti?")
   })
 
