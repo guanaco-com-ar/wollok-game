@@ -1,8 +1,7 @@
 import personaje.*
 import wollok.game.*
 import tipito.*
-import keybinds.*
-import pantallas.* 
+import modelos.*
 
 object juego {
   var property width = 0
@@ -15,17 +14,20 @@ object juego {
     self.configuracionInicial()
     game.title("Juego")
     game.addVisualCharacter(tipito)
-    game.addVisual(personaje)
-    game.say(personaje, personaje.hablar())
+    game.addVisual(foca)
+    game.addVisual(cangrejo)
+    game.addVisual(luciernaga)
+    personajes.dialogos()
+    
   } 
 
   method configuracionInicial(){
-    game.width(71)
-    game.height(21)
+    game.width(15)
+    game.height(11)
     game.boardGround("fondoDecente.png")
-    game.cellSize(45)
-  }
 
   }
+
+}
 
 
