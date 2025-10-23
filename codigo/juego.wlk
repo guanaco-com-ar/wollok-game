@@ -15,8 +15,8 @@ object juego {
     game.title("Juego")
     game.addVisualCharacter(tipito)
     game.addVisual(foca)
-    game.addVisual(cangrejo)
-    game.addVisual(luciernaga)
+    game.addVisual(azazel)
+    game.addVisual(jayman)
     personajes.dialogos()
     
   } 

@@ -1,7 +1,7 @@
 import wollok.game.*
 
 class Personaje{
-    var property position = game.at(3,5)
+    var property position = game.at(3,7)
     var property image  = "foca.png"
 
     method hablar() = "¡Hola, soy un lobo marino! Apreta Z para conseguir una llave."
@@ -18,5 +18,5 @@ class Personaje3 inherits Personaje {
 
 
 const foca = new Personaje()
-const cangrejo = new Personaje2(image = "cangrejo.png", position= game.at(5, 5))
-const luciernaga = new Personaje3(image = "luciernaga.png", position = game.at(7,5))
+const azazel = new Personaje2(image = "Azaze1.png", position= game.at(3, 5))
+const jayman = new Personaje3(image = "Jayman.png", position = game.at(3,3))

@@ -5,8 +5,16 @@ import juego.*
 
 
     object personajes{
-        method consultasPersonaje(){
+        method consultasFoca(){
             game.say(foca, foca.hablar())
+        }
+
+        method consultasAzazel(){
+          game.say(azazel, azazel.hablar())
+        }
+
+        method consultasJayman(){
+          game.say(jayman, jayman.hablar())
         }
         
         method consultasTipito(){
@@ -14,7 +22,7 @@ import juego.*
         }
 
         method dialogos(){
-        game.onCollideDo(foca, {elemento => self.consultasPersonaje()})
+        game.onCollideDo(foca, {elemento => self.consultasFoca()})
         game.onCollideDo(tipito, {elemento => self.consultasTipito()})
         }
     }
