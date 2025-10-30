@@ -24,6 +24,8 @@ import juego.*
         method dialogos(){
         game.onCollideDo(foca, {elemento => self.consultasFoca()})
         game.onCollideDo(tipito, {elemento => self.consultasTipito()})
+        game.onCollideDo(azazel, {elemento => self.consultasAzazel()})
+        game.onCollideDo(jayman, {elemento => self.consultasJayman()})
         }
     }
 
