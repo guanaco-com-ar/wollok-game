@@ -18,6 +18,7 @@ object juego {
     game.addVisual(azazel)
     game.addVisual(jayman)
     personajes.dialogos()
+    personajes.conocerFoca()
     
   } 
 

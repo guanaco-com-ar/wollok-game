@@ -27,6 +27,10 @@ import juego.*
         game.onCollideDo(azazel, {elemento => self.consultasAzazel()})
         game.onCollideDo(jayman, {elemento => self.consultasJayman()})
         }
+
+        method conocerFoca(){
+          game.onCollideDo(foca, {elemento => niveles.nivel1()}   )
+        } 
     }
 
 
@@ -36,11 +40,27 @@ object niveles {
     
   }
 
+  method limpiarLobby(){
+    game.removeVisual(foca)
+    game.removeVisual(azazel)
+    game.removeVisual(jayman)
+    game.removeVisual(tipito)  
+  }
+
+  method volverLobby1(){
+    juego.iniciar()
+    game.removeVisual(foca)
+    game.removeVisual(fondonivel1)
+    game.removeVisual(pepito)
+  }
+
   method setearLvl1() {
-    game.addVisual(fondonivel1)    
+    self.limpiarLobby()
+    game.addVisual(fondonivel1)
+    game.addVisualCharacter(pepito)
   }
 }
 object fondonivel1{
     var property position = game.origin()
-    method image() = "nivel1.png"
+    method image() = "nivel1resize.png"
 }
