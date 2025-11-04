@@ -2,7 +2,9 @@ import wollok.game.*
 import tipito.*
 import personaje.*
 import juego.*
-import modelos.* 
+import modelos.*
+import enemigos.* 
+import llave.* 
 
 
 

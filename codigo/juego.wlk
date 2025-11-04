@@ -2,6 +2,8 @@ import personaje.*
 import wollok.game.*
 import tipito.*
 import modelos.*
+import enemigos.*
+import llave.*
 
 object juego {
   var property width = 0
@@ -19,6 +21,7 @@ object juego {
     game.addVisual(jayman)
     personajes.dialogos()
     personajes.conocerFoca()
+    enemigos.tick()
     
   } 
 

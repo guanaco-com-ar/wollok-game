@@ -2,6 +2,8 @@ import wollok.game.*
 import tipito.*
 import personaje.*
 import juego.*
+import enemigos.*
+import llave.*
 
 
     object personajes{
@@ -21,16 +23,28 @@ import juego.*
             game.say(tipito, tipito.tipitoHablar()) 
         }
 
+        method dialogoEnemigos(){
+          game.say(enemigo1, enemigo1.matarTexto())
+        }
+
         method dialogos(){
         game.onCollideDo(foca, {elemento => self.consultasFoca()})
         game.onCollideDo(tipito, {elemento => self.consultasTipito()})
         game.onCollideDo(azazel, {elemento => self.consultasAzazel()})
         game.onCollideDo(jayman, {elemento => self.consultasJayman()})
+        game.onCollideDo(enemigo1, {elemento => self.dialogoEnemigos()})
         }
 
         method conocerFoca(){
           game.onCollideDo(foca, {elemento => niveles.nivel1()}   )
         } 
+    }
+
+    object enemigos{  
+    method tick(){
+        const tick = game.tick(1000, { enemigo1.perseguir() }, false)
+        tick.start()
+    }
     }
 
 
@@ -58,6 +72,8 @@ object niveles {
     self.limpiarLobby()
     game.addVisual(fondonivel1)
     game.addVisualCharacter(pepito)
+    game.addVisual(enemigo1)
+    game.addVisual(llaveInicial)
   }
 }
 object fondonivel1{
