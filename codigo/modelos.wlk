@@ -5,69 +5,78 @@ import juego.*
 import enemigos.*
 import llave.*
 
+object personajes {
+  method consultasFoca() {
+    game.say(foca, foca.hablar())
+  }
+  
+  method consultasAzazel() {
+    game.say(azazel, azazel.hablar())
+  }
+  
+  method consultasJayman() {
+    game.say(jayman, jayman.hablar())
+  }
+  
+  method consultasTipito() {
+    game.say(tipito, tipito.tipitoHablar())
+  }
+  
+  method dialogos() {
+    game.onCollideDo(foca, { elemento => self.consultasFoca() })
+    game.onCollideDo(tipito, { elemento => self.consultasTipito() })
+    game.onCollideDo(azazel, { elemento => self.consultasAzazel() })
+    game.onCollideDo(jayman, { elemento => self.consultasJayman() })
+  }
+  
+  method conocerFoca() {
+    game.onCollideDo(foca, { elemento => niveles.nivel1() })
+  }
+}
 
-    object personajes{
-        method consultasFoca(){
-            game.say(foca, foca.hablar())
-        }
-
-        method consultasAzazel(){
-          game.say(azazel, azazel.hablar())
-        }
-
-        method consultasJayman(){
-          game.say(jayman, jayman.hablar())
-        }
-        
-        method consultasTipito(){
-            game.say(tipito, tipito.tipitoHablar()) 
-        }
-
-        method dialogoEnemigos(){
-          game.say(enemigo1, enemigo1.matarTexto())
-        }
-
-        method dialogos(){
-        game.onCollideDo(foca, {elemento => self.consultasFoca()})
-        game.onCollideDo(tipito, {elemento => self.consultasTipito()})
-        game.onCollideDo(azazel, {elemento => self.consultasAzazel()})
-        game.onCollideDo(jayman, {elemento => self.consultasJayman()})
-        game.onCollideDo(enemigo1, {elemento => self.dialogoEnemigos()})
-        }
-
-        method conocerFoca(){
-          game.onCollideDo(foca, {elemento => niveles.nivel1()}   )
-        } 
+object enemigos {
+  method dialogoEnemigos() {
+    game.say(enemigo1, enemigo1.matarTexto())
+    
+    const elEnemigoHablo = true
+    return elEnemigoHablo
+  }
+  
+  method ejecutarDialogoEnemigo() {
+    game.onCollideDo(enemigo1, { elemento => self.dialogoEnemigos() })
+  }
+  
+  method tick() {
+    const tick = game.tick(500, { enemigo1.perseguir() }, false)
+    tick.start()
+  }
+  
+  method matar() {
+    if (self.dialogoEnemigos()) {
+      
     }
-
-    object enemigos{  
-    method tick(){
-        const tick = game.tick(1000, { enemigo1.perseguir() }, false)
-        tick.start()
-    }
-    }
-
+  }
+}
 
 object niveles {
   method nivel1() {
-    keyboard.z().onPressDo({self.setearLvl1()})
-    
+    keyboard.z().onPressDo({ self.setearLvl1() })
   }
-
-  method limpiarLobby(){
+  
+  method limpiarLobby() {
     game.removeVisual(foca)
     game.removeVisual(azazel)
     game.removeVisual(jayman)
-    game.removeVisual(tipito)  
+    game.removeVisual(tipito)
   }
-
-  method volverLobby1(){
+  
+  method volverLobby1() {
     juego.iniciar()
     game.removeVisual(foca)
     game.removeVisual(fondonivel1)
     game.removeVisual(pepito)
   }
-
+  
   method setearLvl1() {
     self.limpiarLobby()
     game.addVisual(fondonivel1)
@@ -76,7 +85,9 @@ object niveles {
     game.addVisual(llaveInicial)
   }
 }
-object fondonivel1{
-    var property position = game.origin()
-    method image() = "nivel1resize.png"
+
+object fondonivel1 {
+  var property position = game.origin()
+  
+  method image() = "nivel1resize.png"
 }

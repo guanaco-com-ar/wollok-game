@@ -4,6 +4,7 @@ import tipito.*
 import modelos.*
 import enemigos.*
 import llave.*
+import fuego.*
 
 object juego {
   var property width = 0
@@ -16,12 +17,15 @@ object juego {
     self.configuracionInicial()
     game.title("Juego")
     game.addVisualCharacter(tipito)
+    game.addVisual(fuego)
     game.addVisual(foca)
     game.addVisual(azazel)
     game.addVisual(jayman)
     personajes.dialogos()
+    enemigos.ejecutarDialogoEnemigo()
     personajes.conocerFoca()
     enemigos.tick()
+    fuego.animar()
     
   } 
 

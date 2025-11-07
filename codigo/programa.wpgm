@@ -3,14 +3,10 @@ import tipito.*
 import personaje.*
 import juego.*
 import modelos.*
-import enemigos.* 
-import llave.* 
-
-
+import enemigos.*
+import llave.*
 
 program ejemplo {
   juego.iniciar()
   game.start()
 }
-
-
