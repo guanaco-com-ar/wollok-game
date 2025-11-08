@@ -5,10 +5,10 @@ import juego.*
 import enemigos.*
 
 class Llaves {
-  var property position = game.center()
+  var property centrado = true
   var property image = "keys1.png"
+
+  method position() = if (centrado) game.center() else game.origin()
 }
 
 const llaveInicial = new Llaves()
-
-const llaveFinal = new Llaves(image = "keys2.png")

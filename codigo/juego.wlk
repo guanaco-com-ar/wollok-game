@@ -17,7 +17,6 @@ object juego {
     self.configuracionInicial()
     game.title("Juego")
     game.addVisualCharacter(tipito)
-    game.addVisual(fuego)
     game.addVisual(foca)
     game.addVisual(azazel)
     game.addVisual(jayman)
@@ -26,6 +25,11 @@ object juego {
     personajes.conocerFoca()
     enemigos.tick()
     fuego.animar()
+    niveles.atraparLlave()
+    enemigos.matarProtagonista()
+    enemigos.tickTieneLlaveProtagonista()
+    pepito.evaluacionEstadoProtagonista()
+    
     
   } 
 

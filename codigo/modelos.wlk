@@ -4,6 +4,7 @@ import personaje.*
 import juego.*
 import enemigos.*
 import llave.*
+import fuego.*
 
 object personajes {
   method consultasFoca() {
@@ -32,14 +33,12 @@ object personajes {
   method conocerFoca() {
     game.onCollideDo(foca, { elemento => niveles.nivel1() })
   }
+  
 }
 
 object enemigos {
   method dialogoEnemigos() {
     game.say(enemigo1, enemigo1.matarTexto())
-    
-    const elEnemigoHablo = true
-    return elEnemigoHablo
   }
   
   method ejecutarDialogoEnemigo() {
@@ -50,13 +49,23 @@ object enemigos {
     const tick = game.tick(500, { enemigo1.perseguir() }, false)
     tick.start()
   }
-  
-  method matar() {
-    if (self.dialogoEnemigos()) {
+
+  method matarProtagonista() {
+    if (pepito.image() != "pepitoconllave.png"){
+      console.println("No tiene llave")
+      game.onCollideDo(enemigo1, {elemento => niveles.hasMuerto1()})
+      
+      }else{
+        console.println("Tiene llave")
+      }
+    }
+
+    method tickTieneLlaveProtagonista() {
+      game.onTick(5000, "Evaluando la imagen del protagonista", {self.matarProtagonista()})
       
     }
   }
-}
+
 
 object niveles {
   method nivel1() {
@@ -70,13 +79,6 @@ object niveles {
     game.removeVisual(tipito)
   }
   
-  method volverLobby1() {
-    juego.iniciar()
-    game.removeVisual(foca)
-    game.removeVisual(fondonivel1)
-    game.removeVisual(pepito)
-  }
-  
   method setearLvl1() {
     self.limpiarLobby()
     game.addVisual(fondonivel1)
@@ -84,10 +86,30 @@ object niveles {
     game.addVisual(enemigo1)
     game.addVisual(llaveInicial)
   }
+
+    method hasMuerto1(){
+    game.addVisual(pantallaMuerte)
+    game.addVisual(fuego)
+    game.removeVisual(pepito)
+    game.removeVisual(fondonivel1)
+    game.removeVisual(enemigo1)
+    
+  }
+
+
+  method atraparLlave(){
+    game.onCollideDo(llaveInicial, { elemento => pepito.obtenerLlave()})
+  }
 }
 
 object fondonivel1 {
   var property position = game.origin()
   
   method image() = "nivel1resize.png"
+}
+
+object pantallaMuerte {
+  var property position = game.origin()
+
+  method image() = "pantallaMuerte.png"
 }
