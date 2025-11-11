@@ -10,7 +10,7 @@ describe "Un condicional que me rompe la cabeza" {
 
 test "El personaje cambia de estado"{
     pepito.image("pepitoconllave.png")
-    assert.that(pepito.irAporElEnemigo())
+    assert.that(pepito.vencerAlEnemigo())
 }
 
 
