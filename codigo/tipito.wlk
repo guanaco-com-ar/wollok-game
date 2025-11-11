@@ -18,7 +18,6 @@ class Tipito {
   }
   
   method irAporElEnemigo() {
-    
     if (pepito.image() == "pepitoconllave.png") {
       const pepitoTieneLLave = true
       return pepitoTieneLLave
@@ -26,10 +25,8 @@ class Tipito {
       const pepitoTieneLlave = false
       return pepitoTieneLlave
     }
-
-    
   }
-    
+  
   method evaluacionEstadoProtagonista() {
     game.onTick(10, "evaluacionEstadoProtagonista", { self.irAporElEnemigo() })
   }

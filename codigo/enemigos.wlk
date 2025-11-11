@@ -13,10 +13,12 @@ class Enemigo {
   method matarTexto() = "¡Te atrape, maldito!"
 }
 
-class Fantasmas inherits Enemigo{
+class Fantasmas inherits Enemigo {
   override method matarTexto() = "Buhhhh"
 }
 
 const enemigo1 = new Enemigo()
-const enemigo2 = new Fantasmas(image="masenemigoss2.png")
-const enemigo3 = new Fantasmas (image="masenemigoss1.png")
+
+const enemigo2 = new Fantasmas(image = "masenemigoss2.png")
+
+const enemigo3 = new Fantasmas(image = "masenemigoss1.png")

@@ -37,24 +37,22 @@ object personajes {
   method conocerAzazel() {
     game.onCollideDo(azazel, { elemento => niveles.nivel2() })
   }
-
-  method conocerJayman(){
-    game.onCollideDo(jayman, { elemento => niveles.nivel3()})
+  
+  method conocerJayman() {
+    game.onCollideDo(jayman, { elemento => niveles.nivel3() })
   }
 }
 
 object enemigos {
   method dialogoEnemigo1() {
     game.say(enemigo1, enemigo1.matarTexto())
-
   }
-
-  method dialogoEnemigo2(){
+  
+  method dialogoEnemigo2() {
     game.say(enemigo2, enemigo2.matarTexto())
-    
   }
-
-  method dialogoEnemigo3(){
+  
+  method dialogoEnemigo3() {
     game.say(enemigo3, enemigo3.matarTexto())
   }
   
@@ -66,35 +64,32 @@ object enemigos {
   
   method tick() {
     const tick = game.tick(500, { enemigo1.perseguir() }, false)
-    const tick2 = game.tick(500, {enemigo2.perseguir()}, false)
-    const tick3 = game.tick(500, {enemigo3.perseguir()}, false)
+    const tick2 = game.tick(500, { enemigo2.perseguir() }, false)
+    const tick3 = game.tick(500, { enemigo3.perseguir() }, false)
     tick.start()
     tick2.start()
     tick3.start()
   }
   
   method venceProtagonista() {
-    if (pepito.irAporElEnemigo()) {
-      niveles.hasVencido()
-    }
-  }
-
-  method muereProtagonista(){
-     game.onCollideDo(
-          enemigo1,
-          { elemento => niveles.hasMuerto() }
-        )
-
-      game.onCollideDo(
-          enemigo2,
-          { elemento => niveles.hasMuerto() }
-        )
-  }
-
-  method revisarTieneLLaveProtagonista(){
-    game.onTick(500, "¿Tiene la llave el protagonista?", {self.venceProtagonista()})
+    if (pepito.irAporElEnemigo()) niveles.hasVencido()
   }
   
+  method muereProtagonista() {
+    game.onCollideDo(enemigo1, { elemento => niveles.hasMuerto() })
+    
+    game.onCollideDo(enemigo2, { elemento => niveles.hasMuerto() })
+    
+    game.onCollideDo(enemigo3, { elemento => niveles.hasMuerto() })
+  }
+  
+  method revisarTieneLLaveProtagonista() {
+    game.onTick(
+      500,
+      "¿Tiene la llave el protagonista?",
+      { self.venceProtagonista() }
+    )
+  }
 }
 
 object niveles {
@@ -105,9 +100,9 @@ object niveles {
   method nivel2() {
     keyboard.y().onPressDo({ self.setearLvl2() })
   }
-
-  method nivel3(){
-    keyboard.j().onPressDo({self.setearLvl3()})
+  
+  method nivel3() {
+    keyboard.j().onPressDo({ self.setearLvl3() })
   }
   
   method limpiarLobby() {
@@ -132,7 +127,7 @@ object niveles {
     game.addVisual(enemigo2)
     game.addVisual(llaveInicial)
   }
-
+  
   method setearLvl3() {
     self.limpiarLobby()
     game.addVisual(fondonivel3)
@@ -148,7 +143,7 @@ object niveles {
     game.removeVisual(fondonivel1)
     game.removeVisual(fondonivel2)
     game.removeVisual(enemigo1)
-    
+    self.limpiarLobby()
   }
   
   method hasVencido() {
@@ -181,9 +176,9 @@ object fondonivel2 {
   method image() = "fondolvl2resized (1).png"
 }
 
-object fondonivel3{
+object fondonivel3 {
   var property position = game.origin()
-
+  
   method image() = "fondolvl3.png"
 }
 
