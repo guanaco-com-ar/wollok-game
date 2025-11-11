@@ -23,23 +23,20 @@ object juego {
     personajes.dialogos()
     enemigos.ejecutarDialogoEnemigo()
     personajes.conocerFoca()
+    personajes.conocerAzazel()
+    personajes.conocerJayman()
     enemigos.tick()
     fuego.animar()
     niveles.atraparLlave()
-    enemigos.matarProtagonista()
-    enemigos.tickTieneLlaveProtagonista()
+    enemigos.muereProtagonista()
+    enemigos.revisarTieneLLaveProtagonista()
     pepito.evaluacionEstadoProtagonista()
-    
-    
-  } 
-
-  method configuracionInicial(){
+  }
+  
+  method configuracionInicial() {
     game.width(15)
     game.height(11)
+    game.cellSize(50)
     game.boardGround("fondoDecente.png")
-
   }
-
 }
-
-

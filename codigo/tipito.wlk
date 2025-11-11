@@ -29,7 +29,7 @@ class Tipito {
 
     
   }
-  
+    
   method evaluacionEstadoProtagonista() {
     game.onTick(10, "evaluacionEstadoProtagonista", { self.irAporElEnemigo() })
   }
