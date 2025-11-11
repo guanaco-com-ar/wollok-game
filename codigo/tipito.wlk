@@ -17,7 +17,7 @@ class Tipito {
     game.removeVisual(llaveInicial)
   }
   
-  method irAporElEnemigo() {
+  method vencerAlEnemigo() {
     if (pepito.image() == "pepitoconllave.png") {
       const pepitoTieneLLave = true
       return pepitoTieneLLave
@@ -28,7 +28,7 @@ class Tipito {
   }
   
   method evaluacionEstadoProtagonista() {
-    game.onTick(10, "evaluacionEstadoProtagonista", { self.irAporElEnemigo() })
+    game.onTick(10, "evaluacionEstadoProtagonista", { self.vencerAlEnemigo() })
   }
 }
 

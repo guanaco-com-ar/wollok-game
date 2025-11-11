@@ -1,0 +1,19 @@
+import enemigos.*
+import fuego.*
+import juego.*
+import llave.*
+import modelos.*
+import personaje.*
+import tipito.*
+
+describe "Un condicional que me rompe la cabeza" {
+
+test "El personaje cambia de estado"{
+    pepito.image("pepitoconllave.png")
+    assert.that(pepito.irAporElEnemigo())
+}
+
+
+
+}
+

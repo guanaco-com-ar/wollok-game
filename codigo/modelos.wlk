@@ -72,7 +72,7 @@ object enemigos {
   }
   
   method venceProtagonista() {
-    if (pepito.irAporElEnemigo()) niveles.hasVencido()
+    if (pepito.vencerAlEnemigo()) niveles.hasVencido()
   }
   
   method muereProtagonista() {
