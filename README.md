@@ -9,7 +9,7 @@ Sos un tipito en una dimension desconocida, tampoco importa mucho como llegaste 
 Vas a tener que sobrevivir a la persecucion de 'The Boiled One' y sus dialogos "terrorificos", conseguir una llave de bronce sin que el te atrape y entregarsela al lobo marino que te llevo hasta alli.
 
 ### Segundo minijuego 🩸
--
+Un fantasma de lengua larga, parecido al del emoji del princpio, es quien te consigue ahora. Y tu deberas evadirlo para conseguir su llave.
 
 ### Tercer minijuego 🪬
--
+Finalmente, un ultimo fantasma mas serio sera tu ultimo intento de escape. De lograr conseguir la llave para escapar de su tormento, has ganado el juego. 
