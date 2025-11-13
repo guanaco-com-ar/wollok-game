@@ -72,7 +72,15 @@ object enemigos {
   }
   
   method venceProtagonista() {
-    if (pepito.vencerAlEnemigo()) niveles.hasVencido()
+    if (pepito.vencerAlEnemigo()) {
+      return true
+    } else {
+      return pepito.vencerAlEnemigo()
+    }
+  }
+
+  method validarVictoria(){
+     if (self.venceProtagonista()) niveles.hasVencido()
   }
   
   method muereProtagonista() {
@@ -87,7 +95,7 @@ object enemigos {
     game.onTick(
       500,
       "¿Tiene la llave el protagonista?",
-      { self.venceProtagonista() }
+      { self.validarVictoria() }
     )
   }
 }

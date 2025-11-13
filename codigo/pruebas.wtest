@@ -6,14 +6,29 @@ import modelos.*
 import personaje.*
 import tipito.*
 
-describe "Un condicional que me rompe la cabeza" {
-
-test "El personaje cambia de estado"{
+describe "El condicional mata al personaje" {
+  test "El personaje cambia de estado" {
     pepito.image("pepitoconllave.png")
     assert.that(pepito.vencerAlEnemigo())
+  }
+  
+  test "El condicional no es siempre true" {
+    pepito.image("pepito.png")
+    assert.notThat(pepito.vencerAlEnemigo())
+  }
 }
 
 
-
+describe "test de llave (algun mas test tengo que hacer)"{
+  test "La llave se centra correctamente" {
+    llaveInicial.centrado(true)
+     assert.equals(game.center(), llaveInicial.position())
+  }
+  
 }
 
+describe "la muerte anda mal"{
+  test "la muerte es valida"{
+    
+  }
+}
