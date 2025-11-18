@@ -7,11 +7,6 @@ import llave.*
 import fuego.*
 
 object juego {
-  var property width = 0
-  var property height = 0
-  var property boardGround = "background.png"
-  var property cellSize = 0
-  var property title = "Juego"
   
   method iniciar() {
     self.configuracionInicial()
