@@ -32,4 +32,3 @@ class Pepito inherits Tipito {
 
 const tipito = new Tipito()
 const pepito = new Pepito(image ="pepito.png")
-const invisible = new Pepito (image = "invisible.png")
