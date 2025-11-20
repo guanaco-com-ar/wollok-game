@@ -71,17 +71,7 @@ object enemigos {
     tick3.start()
   }
   
-  method venceProtagonista() {
-    if (pepito.vencerAlEnemigo()) {
-      return true
-    } else {
-      return pepito.vencerAlEnemigo()
-    }
-  }
 
-  method validarVictoria(){
-     if (self.venceProtagonista()) niveles.hasVencido()
-  }
   
   method muereProtagonista() {
     game.onCollideDo(enemigo1, { elemento => niveles.hasMuerto() })
@@ -91,84 +81,74 @@ object enemigos {
     game.onCollideDo(enemigo3, { elemento => niveles.hasMuerto() })
   }
   
-  method revisarTieneLLaveProtagonista() {
-    game.onTick(
-      500,
-      "¿Tiene la llave el protagonista?",
-      { self.validarVictoria() }
-    )
   }
-}
+
 
 object niveles {
+
+  var enemigo = enemigo1
+  var fondos = fondonivel1
+  var property sonido = game.sound("John Carpenter - Halloween 1978 (main Theme).mp3")
+
   method nivel1() {
-    keyboard.z().onPressDo({ self.setearLvl1() })
+    keyboard.z().onPressDo({ self.setearLvl1() self.unirseANivel()})
   }
   
   method nivel2() {
-    keyboard.y().onPressDo({ self.setearLvl2() })
+    keyboard.y().onPressDo({ self.setearLvl2() self.unirseANivel() })
   }
   
   method nivel3() {
-    keyboard.j().onPressDo({ self.setearLvl3() })
+    keyboard.j().onPressDo({ self.setearLvl3() self.unirseANivel() })
   }
-  
-  method limpiarLobby() {
-    game.removeVisual(foca)
-    game.removeVisual(azazel)
-    game.removeVisual(jayman)
+
+  method unirseANivel(){
+    game.addVisual(fondos)
+    game.addVisualCharacter(pepito)
     game.removeVisual(tipito)
+    game.addVisual(enemigo)
+    game.addVisual(llaveInicial)
+    sonido.play()
+    sonido.shouldLoop(true)
   }
+
   
   method setearLvl1() {
-    self.limpiarLobby()
-    game.addVisual(fondonivel1)
-    game.addVisualCharacter(pepito)
-    game.addVisual(enemigo1)
-    game.addVisual(llaveInicial)
+    fondos = fondonivel1
+    enemigo = enemigo1
   }
   
   method setearLvl2() {
-    self.limpiarLobby()
-    game.addVisual(fondonivel2)
-    game.addVisualCharacter(pepito)
-    game.addVisual(enemigo2)
-    game.addVisual(llaveInicial)
+    enemigo = enemigo2
+    fondos = fondonivel2
+
   }
   
   method setearLvl3() {
-    self.limpiarLobby()
-    game.addVisual(fondonivel3)
-    game.addVisualCharacter(pepito)
-    game.addVisual(enemigo3)
-    game.addVisual(llaveInicial)
+
+    enemigo = enemigo3
+    fondos = fondonivel3
+
   }
   
   method hasMuerto() {
     game.addVisual(pantallaMuerte)
     game.addVisual(fuego)
-    game.removeVisual(pepito)
-    game.removeVisual(fondonivel1)
-    game.removeVisual(fondonivel2)
-    game.removeVisual(enemigo1)
-    self.limpiarLobby()
+    game.removeVisual(enemigo)
+    game.removeVisual(fondos) 
   }
   
   method hasVencido() {
-    game.removeVisual(fondonivel1)
-    game.removeVisual(fondonivel2)
-    game.removeVisual(fondonivel3)
     game.removeVisual(pepito)
-    game.removeVisual(enemigo1)
-    game.removeVisual(enemigo2)
-    game.removeVisual(enemigo3)
-    game.addVisual(azazel)
-    game.addVisual(jayman)
     game.addVisualCharacter(tipito)
+    game.removeVisual(enemigo)
+    game.removeVisual(fondos) 
+    game.removeVisual(llaveInicial)
   }
   
   method atraparLlave() {
-    game.onCollideDo(llaveInicial, { elemento => pepito.obtenerLlave() })
+    game.onCollideDo(llaveInicial, { elemento => self.hasVencido() })
+    game.say(pepito, pepito.tipitoTriunfante())
   }
 }
 

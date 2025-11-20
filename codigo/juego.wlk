@@ -24,8 +24,6 @@ object juego {
     fuego.animar()
     niveles.atraparLlave()
     enemigos.muereProtagonista()
-    enemigos.revisarTieneLLaveProtagonista()
-    pepito.evaluacionEstadoProtagonista()
   }
   
   method configuracionInicial() {

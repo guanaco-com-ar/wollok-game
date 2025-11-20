@@ -19,7 +19,7 @@ describe "El condicional mata al personaje" {
 }
 
 
-describe "test de llave (algun mas test tengo que hacer)"{
+describe "test de llave"{
   test "La llave se centra correctamente" {
     llaveInicial.centrado(true)
      assert.equals(game.center(), llaveInicial.position())
@@ -27,8 +27,3 @@ describe "test de llave (algun mas test tengo que hacer)"{
   
 }
 
-describe "la muerte anda mal"{
-  test "la muerte es valida"{
-    
-  }
-}

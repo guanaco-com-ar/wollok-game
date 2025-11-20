@@ -10,32 +10,9 @@ class Tipito {
   method tipitoTriunfante() = "¡Consegui la llave!"
   
   method tipitoMuyTriunfante() = "¡Muere monstruo, muere!"
-  
-  method obtenerLlave() {
-    image = "pepitoconllave.png"
-    game.say(pepito, self.tipitoTriunfante())
-    game.removeVisual(llaveInicial)
-  }
-  
-  method vencerAlEnemigo() {
-    if (pepito.image() == "pepitoconllave.png") {
-      const pepitoTieneLLave = true
-      return pepitoTieneLLave
-    } else {
-      const pepitoTieneLlave = false
-      return pepitoTieneLlave
-    }
-  }
-  
-  method evaluacionEstadoProtagonista() {
-    game.onTick(10, "evaluacionEstadoProtagonista", { self.vencerAlEnemigo() })
-  }
 }
 
-class Tipito2 inherits Tipito {
-  override method tipitoHablar() = "¿Y esto que es?"
-}
 
 const tipito = new Tipito()
 
-const pepito = new Tipito2(image = "pepito.png")
+const pepito = new Tipito(image = "pepito.png")
