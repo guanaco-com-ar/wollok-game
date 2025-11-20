@@ -19,6 +19,8 @@ describe "El condicional mata al personaje" {
 
 }
 
+
+
 describe "test de llave"{
   test "La llave se centra correctamente" {
     llaveInicial.centrado(true)

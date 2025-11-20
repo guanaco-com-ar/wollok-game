@@ -8,13 +8,7 @@ class Llaves {
   var property centrado = true
   var property image = "keys1.png"
   
-  method position(){
-    if(centrado){
-      game.center()
-    } else {
-      game.at(10, 5)
-    }
-  }
+  method position() = if (centrado) game.center() else game.origin()
 }
 const llaveInicial = new Llaves()
 const llavePlata = new Llaves(image = "silverkeys.png")
