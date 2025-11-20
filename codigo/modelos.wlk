@@ -79,6 +79,8 @@ object enemigos {
     game.onCollideDo(enemigo2, { elemento => niveles.hasMuerto() })
     
     game.onCollideDo(enemigo3, { elemento => niveles.hasMuerto() })
+
+    return pepito.estaVivo(false)
   }
   
   }
@@ -86,6 +88,7 @@ object enemigos {
 
 object niveles {
 
+  var property mataMonstruos = pepito
   var property enemigo = enemigo1
   var property fondos = fondonivel1
   var property llaves = llaveInicial
@@ -103,20 +106,7 @@ object niveles {
     keyboard.j().onPressDo({ self.setearLvl3() self.unirseANivel() })
   }
 
-  method unirseANivel(){
-    game.addVisual(fondos)
-    game.addVisual(pepito)
-    game.addVisual(enemigo)
-    game.addVisual(llaves)
-
-    foca.position(game.at(1, 1))
-    azazel.position(game.at(1, 1))
-    jayman.position(game.at(1, 1))
-    tipito.position(game.at(1, 1))
-  }
-
-  
-  method setearLvl1() {
+    method setearLvl1() {
     fondos = fondonivel1
     enemigo = enemigo1
     llaves = llaveInicial
@@ -138,16 +128,24 @@ object niveles {
     
 
   }
-  
-  method hasMuerto() {
-    game.addVisual(pantallaMuerte)
-    game.addVisual(fuego)
-    game.removeVisual(enemigo)
-    game.removeVisual(fondos) 
+
+
+  method unirseANivel(){
+    game.addVisual(fondos)
+    game.addVisual(mataMonstruos)
+    game.addVisual(enemigo)
+    game.addVisual(llaves)
+
+    foca.position(game.at(1, 1))
+    azazel.position(game.at(1, 1))
+    jayman.position(game.at(1, 1))
+    tipito.position(game.at(1, 1))
   }
-  
-  method hasVencido() {
-    game.removeVisual(pepito)
+
+    method hasVencido() {
+
+
+    game.removeVisual(mataMonstruos)
     game.removeVisual(enemigo)
     game.removeVisual(fondos) 
     game.removeVisual(llaves)
@@ -158,11 +156,25 @@ object niveles {
     tipito.position(game.at(14, 4))
   }
   
+
+  
+
+  method hasMuerto() {
+    if (not pepito.estaVivo()){
+    game.addVisual(pantallaMuerte)
+    game.addVisual(fuego)
+    game.removeVisual(enemigo)
+    game.removeVisual(fondos) 
+    }
+  }
+  
+
   method atraparLlave() {
+    if (pepito.estaVivo()){
     game.onCollideDo(llaveInicial, { elemento => self.hasVencido() })
-    console.println("jejeje")
     game.say(pepito, pepito.tipitoTriunfante())
   }
+}
 }
 
 object fondonivel1 {

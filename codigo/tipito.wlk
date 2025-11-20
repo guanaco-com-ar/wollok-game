@@ -4,7 +4,7 @@ import llave.*
 class Tipito {
   var property position = game.at(14, 4)
   var property image = "otroPersonajito.png"
-  
+
   method tipitoHablar() = "¡Hola! ¿Deberia confiar en ti?."
   
   method tipitoTriunfante() = "¡Consegui la llave!"
@@ -16,6 +16,9 @@ class Tipito {
 
 
 class Pepito inherits Tipito {
+
+  var property estaVivo = true
+  
   method movimiento(){
 
     keyboard.w().onPressDo({self.position(self.position().up(1))})
@@ -29,3 +32,4 @@ class Pepito inherits Tipito {
 
 const tipito = new Tipito()
 const pepito = new Pepito(image ="pepito.png")
+const invisible = new Pepito (image = "invisible.png")

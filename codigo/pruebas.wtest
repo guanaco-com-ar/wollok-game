@@ -16,8 +16,8 @@ describe "El condicional mata al personaje" {
     pepito.image("pepito.png")
     assert.notThat(pepito.vencerAlEnemigo())
   }
-}
 
+}
 
 describe "test de llave"{
   test "La llave se centra correctamente" {
