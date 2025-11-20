@@ -86,8 +86,9 @@ object enemigos {
 
 object niveles {
 
-  var enemigo = enemigo1
-  var fondos = fondonivel1
+  var property enemigo = enemigo1
+  var property fondos = fondonivel1
+  var property llaves = llaveInicial
   var property sonido = game.sound("John Carpenter - Halloween 1978 (main Theme).mp3")
 
   method nivel1() {
@@ -104,30 +105,37 @@ object niveles {
 
   method unirseANivel(){
     game.addVisual(fondos)
-    game.addVisualCharacter(pepito)
-    game.removeVisual(tipito)
+    game.addVisual(pepito)
     game.addVisual(enemigo)
-    game.addVisual(llaveInicial)
-    sonido.play()
-    sonido.shouldLoop(true)
+    game.addVisual(llaves)
+
+    foca.position(game.at(1, 1))
+    azazel.position(game.at(1, 1))
+    jayman.position(game.at(1, 1))
+    tipito.position(game.at(1, 1))
   }
 
   
   method setearLvl1() {
     fondos = fondonivel1
     enemigo = enemigo1
+    llaves = llaveInicial
   }
   
   method setearLvl2() {
-    enemigo = enemigo2
     fondos = fondonivel2
+    enemigo = enemigo2
+    llaves = llavePlata
+
 
   }
   
   method setearLvl3() {
 
-    enemigo = enemigo3
     fondos = fondonivel3
+    enemigo = enemigo3
+    llaves = llaveBronce  
+    
 
   }
   
@@ -140,14 +148,19 @@ object niveles {
   
   method hasVencido() {
     game.removeVisual(pepito)
-    game.addVisualCharacter(tipito)
     game.removeVisual(enemigo)
     game.removeVisual(fondos) 
-    game.removeVisual(llaveInicial)
+    game.removeVisual(llaves)
+
+    foca.position(game.at(3, 7))
+    azazel.position(game.at(3, 5))
+    jayman.position(game.at(3, 3))
+    tipito.position(game.at(14, 4))
   }
   
   method atraparLlave() {
     game.onCollideDo(llaveInicial, { elemento => self.hasVencido() })
+    console.println("jejeje")
     game.say(pepito, pepito.tipitoTriunfante())
   }
 }

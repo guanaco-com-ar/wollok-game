@@ -20,6 +20,7 @@ object juego {
     personajes.conocerFoca()
     personajes.conocerAzazel()
     personajes.conocerJayman()
+    pepito.movimiento()
     enemigos.tick()
     fuego.animar()
     niveles.atraparLlave()

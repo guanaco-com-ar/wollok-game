@@ -13,6 +13,19 @@ class Tipito {
 }
 
 
-const tipito = new Tipito()
 
-const pepito = new Tipito(image = "pepito.png")
+
+class Pepito inherits Tipito {
+  method movimiento(){
+
+    keyboard.w().onPressDo({self.position(self.position().up(1))})
+    keyboard.s().onPressDo({self.position(self.position().down(1))})
+    keyboard.a().onPressDo({self.position(self.position().left(1))})
+    keyboard.d().onPressDo({self.position(self.position().right(1))})
+
+
+  }
+}
+
+const tipito = new Tipito()
+const pepito = new Pepito(image ="pepito.png")

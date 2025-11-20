@@ -12,3 +12,5 @@ class Llaves {
 }
 
 const llaveInicial = new Llaves()
+const llavePlata = new Llaves(image = "silverkeys.png")
+const llaveBronce = new Llaves(image = "bronzekeys.png")  
