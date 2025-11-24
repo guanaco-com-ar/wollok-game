@@ -32,3 +32,5 @@ class Pepito inherits Tipito {
 
 const tipito = new Tipito()
 const pepito = new Pepito(image ="pepito.png")
+const sandia = new Pepito(image = "bichitos1.png")
+const gatito = new Pepito(image = "bichitos2.png")

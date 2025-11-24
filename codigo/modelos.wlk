@@ -87,92 +87,91 @@ object enemigos {
 
 
 object niveles {
-
-  var property mataMonstruos = pepito
-  var property enemigo = enemigo1
-  var property fondos = fondonivel1
-  var property llaves = llaveInicial
   var property sonido = game.sound("John Carpenter - Halloween 1978 (main Theme).mp3")
 
   method nivel1() {
-    keyboard.z().onPressDo({ self.setearLvl1() self.unirseANivel()})
+    keyboard.z().onPressDo({ self.setearLvl1()})
   }
   
   method nivel2() {
-    keyboard.y().onPressDo({ self.setearLvl2() self.unirseANivel() })
+    keyboard.y().onPressDo({ self.setearLvl1() })
   }
   
   method nivel3() {
-    keyboard.j().onPressDo({ self.setearLvl3() self.unirseANivel() })
+    keyboard.j().onPressDo({ self.setearLvl1() })
   }
 
     method setearLvl1() {
-    fondos = fondonivel1
-    enemigo = enemigo1
-    llaves = llaveInicial
+    game.addVisual(fondonivel1)
+    game.addVisual(enemigo1)
+    game.addVisual(llaveInicial)
+    game.addVisual(pepito)
+
+    foca.position(game.at(1, 1))
+    azazel.position(game.at(1, 1))
+    jayman.position(game.at(1, 1))
+    tipito.position(game.at(1, 1))
+
   }
   
   method setearLvl2() {
-    fondos = fondonivel2
-    enemigo = enemigo2
-    llaves = llavePlata
+    game.removeVisual(fondonivel1)
+    game.removeVisual(enemigo1)
+    game.removeVisual(llaveInicial)
+    game.removeVisual(pepito)
+
+    game.addVisual(fondonivel2)
+    game.addVisual(enemigo2)
+    game.addVisual(sandia)
+    sandia.position(game.at(14, 4))
+    game.addVisual(llavePlata)
 
 
   }
   
   method setearLvl3() {
 
-    fondos = fondonivel3
-    enemigo = enemigo3
-    llaves = llaveBronce  
+    game.removeVisual(fondonivel2)
+    game.removeVisual(enemigo2)
+    game.removeVisual(llavePlata)
+    game.removeVisual(sandia)
+
+
+    game.addVisual(fondonivel3)
+    game.addVisual(enemigo3)
+    game.addVisual(gatito)
+    gatito.position(game.at(14, 4))
+    game.addVisual(llaveBronce)
     
 
   }
 
-
-  method unirseANivel(){
-    game.addVisual(fondos)
-    game.addVisual(mataMonstruos)
-    game.addVisual(enemigo)
-    game.addVisual(llaves)
-
-    foca.position(game.at(1, 1))
-    azazel.position(game.at(1, 1))
-    jayman.position(game.at(1, 1))
-    tipito.position(game.at(1, 1))
-  }
-
-    method hasVencido() {
-
-
-    game.removeVisual(mataMonstruos)
-    game.removeVisual(enemigo)
-    game.removeVisual(fondos) 
-    game.removeVisual(llaves)
-
-    foca.position(game.at(3, 7))
-    azazel.position(game.at(3, 5))
-    jayman.position(game.at(3, 3))
-    tipito.position(game.at(14, 4))
-  }
-  
-
-  
-
   method hasMuerto() {
-    if (not pepito.estaVivo()){
     game.addVisual(pantallaMuerte)
     game.addVisual(fuego)
-    game.removeVisual(enemigo)
-    game.removeVisual(fondos) 
-    }
+    
+  
+  }
+
+  method hasGanado(){
+    game.addVisual(pantallaVictoria)
   }
   
 
   method atraparLlave() {
     if (pepito.estaVivo()){
-    game.onCollideDo(llaveInicial, { elemento => self.hasVencido() })
+    game.onCollideDo(llaveInicial, { elemento => self.setearLvl2() })
     game.say(pepito, pepito.tipitoTriunfante())
+  }
+
+  if (sandia.estaVivo()){
+    game.onCollideDo(llavePlata, { elemento => self.setearLvl3() })
+    game.say(sandia, sandia.tipitoTriunfante())
+  }
+
+  if (gatito.estaVivo()){
+    game.onCollideDo(llaveBronce, {elemento => self.hasGanado()})
+    game.say(gatito, gatito.tipitoMuyTriunfante())
   }
 }
 }
@@ -199,4 +198,10 @@ object pantallaMuerte {
   var property position = game.origin()
   
   method image() = "pantallaMuerte.png"
+}
+
+object pantallaVictoria {
+  var property position = game.origin()
+
+  method image() = "imagenFinal (1).png"
 }

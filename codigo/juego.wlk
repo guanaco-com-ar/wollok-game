@@ -21,6 +21,8 @@ object juego {
     personajes.conocerAzazel()
     personajes.conocerJayman()
     pepito.movimiento()
+    sandia.movimiento()
+    gatito.movimiento()
     enemigos.tick()
     fuego.animar()
     niveles.atraparLlave()
